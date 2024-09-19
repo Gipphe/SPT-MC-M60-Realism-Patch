@@ -4,12 +4,17 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
   outputs =
-    { nixpkgs, flake-utils, ... }:
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        inherit (pkgs) lib stdenv;
+        inherit (pkgs) stdenv;
         fileName = "MC-M60_Realism_Patch";
         zipFileName = "${fileName}.zip";
       in
@@ -37,20 +42,25 @@
               nix build
               cp "./result/${zipFileName}" "/mnt/c/Users/Gipphe/Downloads/MC-M60 Realism Patch.zip"
             '';
-            release = pkgs.writeShellScriptBin "release" ''
-              set -e
-              export PATH=${pkgs.cocogitto}/bin:${pkgs.gh}/bin:${pkgs.pandoc}/bin:$PATH
-              nix build
-              cog bump --auto
-              version="v$(cog get-version 2>/dev/null)"
-              release_dir="./releases/$version"
-              mkdir -p "$release_dir"
-              cog changelog $version > "$release_dir/notes.md"
-              pandoc --from=markdown --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
-              cp "./result/MC-M60_Realism_Patch.zip" "./releases/$version/"
-              git push --tags
-              gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
-            '';
+            release = pkgs.writeShellApplication {
+              name = "release";
+              runtimeInputs = with pkgs; [
+                gh
+                pandoc
+                cocogitto
+              ];
+              text = ''
+                cog bump --auto
+                version="v$(cog get-version 2>/dev/null)"
+                release_dir="./releases/$version"
+                mkdir -p "$release_dir"
+                cog changelog "$version" > "$release_dir/notes.md"
+                pandoc --from=markdown --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
+                cp -f "${self.packages.${system}.default}/${zipFileName}" "$release_dir/${zipFileName}"
+                git push --tags
+                gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
+              '';
+            };
           in
           pkgs.mkShellNoCC {
             packages = with pkgs; [
