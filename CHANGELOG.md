@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v1.0.2](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/compare/3401fd0743a323323c49553e853094bc505fb76e..v1.0.2) - 2024-09-19
+#### Bug Fixes
+- increase load/unload time for magazine - ([e6fa6eb](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/e6fa6eba95c86b6ae22827261ebaaeeaaddc2fc3)) - [@Gipphe](https://github.com/Gipphe)
+- increase base recoil back up just a bit - ([084e1d9](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/084e1d98bad396096d83cb394e103ac8e581d3e3)) - [@Gipphe](https://github.com/Gipphe)
+#### Documentation
+- add README - ([3fad910](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/3fad9107487166c06d49d8662f2ae82ceeefaaf4)) - [@Gipphe](https://github.com/Gipphe)
+#### Miscellaneous Chores
+- fix pandoc html conversion - ([11b1243](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/11b1243369adfaba2e831285bc0829d4c7fd14c6)) - [@Gipphe](https://github.com/Gipphe)
+- fix changelog separator - ([447e1d9](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/447e1d903bd305169e9f698ea9728dd41dfbfa0c)) - [@Gipphe](https://github.com/Gipphe)
+- use writeShellApplication - ([8df18b2](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/8df18b2cd4f59c4d95ae7c72d2839950d0e4b0b5)) - [@Gipphe](https://github.com/Gipphe)
+- add release notes to release - ([73cd1b2](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/73cd1b238e7f970cbbcd13fc1a78e1f7d073c94d)) - [@Gipphe](https://github.com/Gipphe)
+- drop label from release artifact - ([c004c79](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/c004c79100e8fc9ad4dbb2c46467ff8b0d7c857d)) - [@Gipphe](https://github.com/Gipphe)
+- push tag before release - ([1713d69](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/1713d69d4338d2fa8172e2b66acb786ccd8f1328)) - [@Gipphe](https://github.com/Gipphe)
+- fix typo - ([30143fc](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/30143fc0c76487eb18d5d98afeb98ea9deac54df)) - [@Gipphe](https://github.com/Gipphe)
+- fix cocogitto changelog separator - ([309152e](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/309152e4205c0620c9be7850ab3fb73fc333c8de)) - [@Gipphe](https://github.com/Gipphe)
+- add full release script for Github - ([30f33cf](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/30f33cf8c54012e7fefe8243c347e5372175993e)) - [@Gipphe](https://github.com/Gipphe)
+- update CHANGELOG with past releases - ([648fc52](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/648fc52ed7149ab791583dedf4ad943ad1485dfc)) - [@Gipphe](https://github.com/Gipphe)
+- use built-in template - ([0e00e12](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/0e00e12a89432f1999b8273fb3a837c737794ffb)) - [@Gipphe](https://github.com/Gipphe)
+- create template for cog - ([577197b](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/577197b76d012137531a171632e9e91e49b4d6bf)) - [@Gipphe](https://github.com/Gipphe)
+- replace semantic-release with cocogitto - ([843bd29](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/843bd29c248957efe1de000de35baff1df1b689c)) - [@Gipphe](https://github.com/Gipphe)
+- use underscores instead of spaces in zip file name - ([3401fd0](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/3401fd0743a323323c49553e853094bc505fb76e)) - [@Gipphe](https://github.com/Gipphe)
+
+- - -
+
 ## [v1.0.1](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/compare/b6352ed585f1cf77cfc00674130e502bcf9d
 
 e753..v1.0.1) - 2024-09-19
