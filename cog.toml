@@ -19,7 +19,7 @@ post_package_bump_hooks = []
 [changelog]
 path = "CHANGELOG.md"
 remote = "github.com"
-template = "cog/changelog_template"
+template = "remote"
 owner = "Gipphe"
 repository = "SPT-MC-M60-Realism-Patch"
 authors = [
