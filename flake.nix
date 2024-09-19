@@ -51,11 +51,11 @@
               ];
               text = ''
                 cog bump --auto
-                version="v$(cog get-version 2>/dev/null)"
+                version="v$(cog -v get-version)"
                 release_dir="./releases/$version"
                 mkdir -p "$release_dir"
                 cog changelog "$version" > "$release_dir/notes.md"
-                pandoc --from=markdown --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
+                pandoc --from=gfm --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
                 cp -f "${self.packages.${system}.default}/${zipFileName}" "$release_dir/${zipFileName}"
                 git push --tags
                 gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
