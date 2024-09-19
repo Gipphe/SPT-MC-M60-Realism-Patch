@@ -6,12 +6,7 @@
     [
       "@semantic-release/github",
       {
-        "assets": [
-          {
-            "path": "result/MC-M60 Realism Patch.zip",
-            "label": "Extract into the root of your SPT install."
-          }
-        ]
+        "assets": ["result/MC-M60 Realism Patch.zip"]
       }
     ]
   ]
