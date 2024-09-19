@@ -327,7 +327,7 @@
     "ReloadSpeed": 0,
     "Ergonomics": -20,
     "MagMalfunctionChance": 0.01,
-    "LoadUnloadModifier": 0,
+    "LoadUnloadModifier": 75,
     "CheckTimeModifier": 0,
     "ConflictingItems": [],
     "Weight": 0.423,
