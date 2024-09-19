@@ -3,7 +3,6 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
-
 ## [v1.0.1](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/compare/b6352ed585f1cf77cfc00674130e502bcf9d
 
 e753..v1.0.1) - 2024-09-19
@@ -30,6 +29,7 @@ e753..v1.0.1) - 2024-09-19
 - allow releases from local machine - ([09a7751](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/09a7751ec8849559f0fdf8979e7e8b2a9cedc82e)) - [@Gipphe](https://github.com/Gipphe)
 - add release script and build setup to help automate releases - ([b6352ed](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/b6352ed585f1cf77cfc00674130e502bcf9de753)) - [@Gipphe](https://github.com/Gipphe)
 
+- - -
 ## [v1.0.0](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/compare/64503b2fac667b1a5931a23b764006b0a961ea63..v1.0.0) - 2024-09-19
 
 #### Features
