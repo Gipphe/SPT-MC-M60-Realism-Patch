@@ -45,7 +45,7 @@
               version="v$(cog get-version 2>/dev/null)"
               release_dir="./releases/$version"
               mkdir -p "$release_dir"
-              cog changelog $version > "$release_dir/nodes.md"
+              cog changelog $version > "$release_dir/notes.md"
               pandoc --from=markdown --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
               cp "./result/MC-M60_Realism_Patch.zip" "./releases/$version/"
               gh release create "$version" -F "$release_dir/notes.md" "$release_dir/${zipFileName}#Extract into root SPT folder"
