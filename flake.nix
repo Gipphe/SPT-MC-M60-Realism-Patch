@@ -49,7 +49,7 @@
               pandoc --from=markdown --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
               cp "./result/MC-M60_Realism_Patch.zip" "./releases/$version/"
               git push --tags
-              gh release create "$version" -F "$release_dir/notes.md" "$release_dir/${zipFileName}"
+              gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
             '';
           in
           pkgs.mkShellNoCC {
