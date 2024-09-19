@@ -32,6 +32,11 @@
         };
         devShells.default =
           let
+            test-build = pkgs.writeShellScriptBin "test-build" ''
+              set -e
+              nix build
+              cp "./result/MC-M60 Realism Patch.zip" /mnt/c/Users/Gipphe/Downloads/
+            '';
             release = pkgs.writeShellScriptBin "release" ''
               set -e
               nix build
@@ -44,7 +49,7 @@
               semantic-release
             ];
             shellHook = ''
-              export PATH="${release}/bin:$PATH"
+              export PATH="${release}/bin:${test-build}/bin:$PATH"
             '';
           };
       }
