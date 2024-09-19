@@ -1,0 +1,28 @@
+{
+  "name": "M60-Realism-Patch",
+  "version": "1.0.0",
+  "private": true,
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "result/M60-Realism-Patch.zip",
+              "label": "Extract into the root of your SPT install."
+            }
+          ]
+        }
+      ]
+    ]
+  }
+}
