@@ -10,7 +10,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (pkgs) lib stdenv;
-        fileName = "MC-M60 Realism-Patch";
+        fileName = "MC-M60 Realism Patch";
         zipFileName = "${fileName}.zip";
       in
       {
