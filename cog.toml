@@ -1,3 +1,4 @@
+tag_prefix = "v"
 from_latest_tag = false
 ignore_merge_commits = false
 disable_changelog = false
@@ -17,7 +18,13 @@ post_package_bump_hooks = []
 
 [changelog]
 path = "CHANGELOG.md"
-authors = []
+remote = "github.com"
+template = "cog/changelog_template"
+owner = "Gipphe"
+repository = "SPT-MC-M60-Realism-Patch"
+authors = [
+  { signature = "Victor Nascimento Bakke", username = "Gipphe" }
+]
 
 [bump_profiles]
 

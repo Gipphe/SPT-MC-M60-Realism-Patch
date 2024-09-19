@@ -1,0 +1,52 @@
+{% if version.tag and from.tag -%}
+    <h2><a href="{{repository_url ~ "/compare/" ~ from.tag ~ ".." ~ version.tag}}">{{ version.tag }}</a> - {{ date | date(format="%Y-%m-%d") }}</h2>
+{% elif version.tag and from.id -%}
+    <h2><a href="{{repository_url ~ "/compare/" ~ from.id ~ ".." ~ version.tag}}">{{ version.tag }}</a> - {{ date | date(format="%Y-%m-%d") }}</h2>
+{% else -%}
+    {% set from = from.id -%}
+    {% set to = version.id -%}
+
+    {% set from_shorthand = from.id | truncate(length=7, end="") -%}
+    {% set to_shorthand = version.id | truncate(length=7, end="") -%}
+
+    <h2>Unreleased (<a href="{{repository_url ~ "/compare/" ~ from_shorthand ~ ".." ~ to_shorthand}}">{{ from_shorthand ~ ".." ~ to_shorthand }}</a>)</h2>
+{% endif -%}
+
+{% for type, typed_commits in commits | sort(attribute="type")| group_by(attribute="type")-%}
+
+<h4>{{ type | upper_first }}</h4>
+{% for scope, scoped_commits in typed_commits | group_by(attribute="scope") -%}
+
+<ul>
+{% for commit in scoped_commits | sort(attribute="scope") -%}
+    {% if commit.author and repository_url -%}
+        {% set author = "@" ~ commit.author -%}
+        {% set author_link = platform ~ "/" ~ commit.author -%}
+        {% set author = "[" ~ author ~ "](" ~ author_link ~ ")" -%}
+    {% else -%}
+        {% set author = commit.signature -%}
+    {% endif -%}
+    {% set commit_link = repository_url ~ "/commit/" ~ commit.id -%}
+    {% set shorthand = commit.id | truncate(length=7, end="") -%}
+    <li><strong>({{ scope }})</strong> {{ commit.summary }} - (<a href="{{ commit_link }}">{{shorthand}}</a>) - {{ author }}</li>
+{% endfor -%}
+</ul>
+
+{% endfor -%}
+
+<ul>
+{% for commit in typed_commits | unscoped -%}
+    {% if commit.author and repository_url -%}
+        {% set author = "@" ~ commit.author -%}
+        {% set author_link = platform ~ "/" ~ commit.author -%}
+        {% set author = "[" ~ author ~ "](" ~ author_link ~ ")" -%}
+    {% else -%}
+        {% set author = commit.signature -%}
+    {% endif -%}
+    {% set commit_link = repository_url ~ "/commit/" ~ commit.id -%}
+    {% set shorthand = commit.id | truncate(length=7, end="") -%}
+    <li>{{ commit.summary }} - (<a href="{{ commit_link }}">{{shorthand}}</a>) - {{ author }}</li>
+{% endfor -%}
+</ul>
+
+{% endfor -%}
