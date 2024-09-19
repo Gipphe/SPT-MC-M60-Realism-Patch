@@ -10,18 +10,20 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (pkgs) lib stdenv;
+        fileName = "M60-Realism-Patch";
+        zipFileName = "${fileName}.zip";
       in
       {
         packages.default = stdenv.mkDerivation {
-          name = "M60-Realism-Patch";
+          name = fileName;
           src = ./user;
           buildInputs = [ pkgs.zip ];
           buildPhase = ''
-            zip -r "M60-Realism-Patch.zip" "$src"
+            zip -r "${zipFileName}" "$src"
           '';
           installPhase = ''
             mkdir -p $out
-            mv "M60-Realism-Patch.zip" $out
+            mv "${zipFileName}" $out
           '';
         };
         devShells.default =
