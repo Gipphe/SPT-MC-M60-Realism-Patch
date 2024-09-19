@@ -35,12 +35,20 @@
             test-build = pkgs.writeShellScriptBin "test-build" ''
               set -e
               nix build
-              cp "./result/MC-M60_Realism_Patch.zip" "/mnt/c/Users/Gipphe/Downloads/MC-M60 Realism Patch.zip"
+              cp "./result/${zipFileName}" "/mnt/c/Users/Gipphe/Downloads/MC-M60 Realism Patch.zip"
             '';
             release = pkgs.writeShellScriptBin "release" ''
               set -e
+              export PATH=${pkgs.cocogitto}/bin:${pkgs.gh}/bin:${pkgs.pandoc}/bin:$PATH
               nix build
-              ${lib.getExe pkgs.cocogitto} bump --auto
+              cog bump --auto
+              version="v$(cog get-version 2>/dev/null)"
+              release_dir="./releases/$version"
+              mkdir -p "$release_dir"
+              cog changelog $version > "$release_dir/nodes.md"
+              pandoc --from=markdown --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
+              cp "./result/MC-M60_Realism_Patch.zip" "./releases/$version/"
+              gh release create "$version" -F "$release_dir/notes.md" "$release_dir/${zipFileName}#Extract into root SPT folder"
             '';
           in
           pkgs.mkShellNoCC {
