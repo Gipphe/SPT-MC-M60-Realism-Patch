@@ -10,7 +10,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (pkgs) lib stdenv;
-        fileName = "M60-Realism-Patch";
+        fileName = "MC-M60 Realism-Patch";
         zipFileName = "${fileName}.zip";
       in
       {
@@ -19,7 +19,11 @@
           src = ./user;
           buildInputs = [ pkgs.zip ];
           buildPhase = ''
-            zip -r "${zipFileName}" "$src"
+            dir="mods/SPT-Realism/db/put_new_stuff_here"
+            full_dir="user/$dir"
+            mkdir -p "./$full_dir"
+            cp "$src/$dir/MC_M60.json" "./$full_dir/MC_M60.json"
+            zip -r "${zipFileName}" user/
           '';
           installPhase = ''
             mkdir -p $out
