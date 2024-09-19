@@ -40,7 +40,7 @@
             release = pkgs.writeShellScriptBin "release" ''
               set -e
               nix build
-              ${lib.getExe pkgs.semantic-release}
+              ${lib.getExe pkgs.semantic-release} -b main
             '';
           in
           pkgs.mkShellNoCC {
