@@ -40,13 +40,13 @@
             release = pkgs.writeShellScriptBin "release" ''
               set -e
               nix build
-              ${lib.getExe pkgs.semantic-release} -b main
+              ${lib.getExe pkgs.cocogitto} bump --auto
             '';
           in
           pkgs.mkShellNoCC {
             packages = with pkgs; [
               nixfmt-rfc-style
-              semantic-release
+              cocogitto
             ];
             shellHook = ''
               export PATH="${release}/bin:${test-build}/bin:$PATH"
