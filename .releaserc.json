@@ -6,7 +6,7 @@
     [
       "@semantic-release/github",
       {
-        "assets": ["result/MC-M60 Realism Patch.zip"]
+        "assets": ["result/MC-M60_Realism_Patch.zip"]
       }
     ]
   ]

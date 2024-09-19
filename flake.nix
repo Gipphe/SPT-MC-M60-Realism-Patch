@@ -10,7 +10,7 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (pkgs) lib stdenv;
-        fileName = "MC-M60 Realism Patch";
+        fileName = "MC-M60_Realism_Patch";
         zipFileName = "${fileName}.zip";
       in
       {
@@ -35,7 +35,7 @@
             test-build = pkgs.writeShellScriptBin "test-build" ''
               set -e
               nix build
-              cp "./result/MC-M60 Realism Patch.zip" /mnt/c/Users/Gipphe/Downloads/
+              cp "./result/MC-M60_Realism_Patch.zip" "/mnt/c/Users/Gipphe/Downloads/MC-M60 Realism Patch.zip"
             '';
             release = pkgs.writeShellScriptBin "release" ''
               set -e
