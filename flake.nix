@@ -60,7 +60,6 @@
                 pandoc --from=gfm --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
                 cp -f "${self.packages.${system}.default}/${zipFileName}" "$release_dir/${zipFileName}"
                 git push --follow-tags
-                gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
               '';
             };
             gh-release = pkgs.writeShellApplication {
