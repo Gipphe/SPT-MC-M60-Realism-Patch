@@ -47,7 +47,6 @@
               runtimeEnv.releases_basedir = "./releases";
               runtimeInputs = with pkgs; [
                 cocogitto
-                gh
                 git
                 pandoc
               ];
