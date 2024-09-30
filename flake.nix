@@ -42,8 +42,9 @@
               nix build
               cp "./result/${zipFileName}" "/mnt/c/Users/Gipphe/Downloads/MC-M60 Realism Patch.zip"
             '';
-            release = pkgs.writeShellApplication {
-              name = "release";
+            create-release = pkgs.writeShellApplication {
+              name = "create-release";
+              runtimeEnv.releases_basedir = "./releases";
               runtimeInputs = with pkgs; [
                 cocogitto
                 gh
@@ -53,7 +54,7 @@
               text = ''
                 cog bump --auto
                 version="v$(cog -v get-version)"
-                release_dir="./releases/$version"
+                release_dir="$releases_basedir/$version"
                 mkdir -p "$release_dir"
                 cog changelog "$version" > "$release_dir/notes.md"
                 pandoc --from=gfm --to=html -o "$release_dir/notes.html" "$release_dir/notes.md"
@@ -62,12 +63,26 @@
                 gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
               '';
             };
+            gh-release = pkgs.writeShellApplication {
+              name = "gh-release";
+              runtimeEnv.releases_basedir = "./releases";
+              runtimeInputs = with pkgs; [
+                cocogitto
+                gh
+              ];
+              text = ''
+                version="v$(cog -v get-version)"
+                release_dir="$releases_basedir/$version";
+                gh release create "$version" -F "$release_dir/notes.md" "$release_dir"/*
+              '';
+            };
           in
           pkgs.mkShellNoCC {
             packages = with pkgs; [
               nixfmt-rfc-style
               cocogitto
-              release
+              create-release
+              gh-release
               test-build
             ];
           };
