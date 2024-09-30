@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v1.1.0](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/compare/fb6c0860338949c48a89e7379fbe5789a12b0e5b..v1.1.0) - 2024-09-30
+#### Features
+- adapt malfunction chance to Realism mod 1.4.5 - ([0fdbaf1](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/0fdbaf103ad2b61439c086724d368af37cc75d42)) - [@Gipphe](https://github.com/Gipphe)
+
+- - -
+
 ## [v1.0.2](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/compare/3401fd0743a323323c49553e853094bc505fb76e..v1.0.2) - 2024-09-19
 #### Bug Fixes
 - increase load/unload time for magazine - ([e6fa6eb](https://github.com/Gipphe/SPT-MC-M60-Realism-Patch/commit/e6fa6eba95c86b6ae22827261ebaaeeaaddc2fc3)) - [@Gipphe](https://github.com/Gipphe)
