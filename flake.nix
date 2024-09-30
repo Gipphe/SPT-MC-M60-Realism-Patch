@@ -67,10 +67,9 @@
             packages = with pkgs; [
               nixfmt-rfc-style
               cocogitto
+              release
+              test-build
             ];
-            shellHook = ''
-              export PATH="${release}/bin:${test-build}/bin:$PATH"
-            '';
           };
       }
     );
